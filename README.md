@@ -9,11 +9,13 @@ This project builds an automatic differentiation engine from scratch, demonstrat
 ## Progress
 
 - **Day 1**: `Value` class with basic operations (`+`, `*`) and computation graph visualization
+- **Day 2**: Manual backpropagation, gradient checking, and a simple neuron
 
 ## Structure
 
 ```
-├── day_01_value_class.ipynb   # Day 1: Value object and basic operations
+├── day_01_value_class.ipynb       # Day 1: Value object and basic operations
+├── day_02_backpropagation.ipynb   # Day 2: Backpropagation and neurons
 └── README.md
 ```
 

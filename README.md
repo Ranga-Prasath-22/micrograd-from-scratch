@@ -13,6 +13,7 @@ This project builds an automatic differentiation engine from scratch, demonstrat
 - [x] **Day 3**: Chain rule, automatic `backward()`, topological sort, gradient accumulation
 - [x] **Day 4**: Power, division, negation, subtraction with backward passes
 - [x] **Day 5**: `Neuron` class with weights, bias, and tanh activation
+- [x] **Day 6**: `Layer` and `MLP` classes — organizing neurons into networks
 
 ## Structure
 
@@ -22,6 +23,7 @@ This project builds an automatic differentiation engine from scratch, demonstrat
 ├── day_03_chain_rule.ipynb        # Day 3: Automatic backward pass
 ├── day_04_more_operations.ipynb   # Day 4: Power, division, negation, subtraction
 ├── day_05_neurons.ipynb           # Day 5: Neuron class with tanh activation
+├── day_06_layers.ipynb            # Day 6: Layer and MLP classes
 └── README.md
 ```
 

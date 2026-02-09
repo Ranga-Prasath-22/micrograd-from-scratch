@@ -14,6 +14,7 @@ This project builds an automatic differentiation engine from scratch, demonstrat
 - [x] **Day 4**: Power, division, negation, subtraction with backward passes
 - [x] **Day 5**: `Neuron` class with weights, bias, and tanh activation
 - [x] **Day 6**: `Layer` and `MLP` classes — organizing neurons into networks
+- [x] **Day 7**: Training loop with MSE loss and gradient descent — **Week 1 Complete!** 🎉
 
 ## Structure
 
@@ -24,6 +25,7 @@ This project builds an automatic differentiation engine from scratch, demonstrat
 ├── day_04_more_operations.ipynb   # Day 4: Power, division, negation, subtraction
 ├── day_05_neurons.ipynb           # Day 5: Neuron class with tanh activation
 ├── day_06_layers.ipynb            # Day 6: Layer and MLP classes
+├── day_07_training_loop.ipynb     # Day 7: Training loop with gradient descent
 └── README.md
 ```
 

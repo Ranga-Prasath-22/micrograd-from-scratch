@@ -16,6 +16,7 @@ This project builds an automatic differentiation engine from scratch, demonstrat
 - [x] **Day 6**: `Layer` and `MLP` classes — organizing neurons into networks
 - [x] **Day 7**: Training loop with MSE loss and gradient descent — **Week 1 Complete!** 🎉
 - [x] **Day 8**: Mini-batch gradient descent — batching, shuffling, batch size comparison
+- [x] **Day 9**: SGD with momentum — velocity accumulation, β tuning
 
 ## Structure
 
@@ -28,6 +29,7 @@ This project builds an automatic differentiation engine from scratch, demonstrat
 ├── day_06_layers.ipynb            # Day 6: Layer and MLP classes
 ├── day_07_training_loop.ipynb     # Day 7: Training loop with gradient descent
 ├── day_08_batching.ipynb          # Day 8: Mini-batch gradient descent
+├── day_09_momentum.ipynb          # Day 9: SGD with momentum
 └── README.md
 ```
 

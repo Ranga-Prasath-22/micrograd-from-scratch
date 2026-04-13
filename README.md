@@ -55,6 +55,11 @@ The benchmark is fair by design:
 - same random initialization seed
 - only optimizer changes
 
+### Convergence Plots
+
+![Train convergence](results/convergence_train.png)
+![Validation convergence](results/convergence_val.png)
+
 ## Design Tradeoffs
 
 - Kept scalar-level autograd for clarity over speed.

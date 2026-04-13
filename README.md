@@ -1,47 +1,85 @@
-# Micrograd from Scratch
+# micrograd-from-scratch
 
-A step-by-step implementation of a tiny autograd engine and neural network library, inspired by Andrej Karpathy's [micrograd](https://github.com/karpathy/micrograd).
+Built from first principles: scalar autograd, MLP, optimizers, schedulers, and a tiny trainer loop.
 
-## Overview
+This repo is both:
+- a learning track (`day_01` to `day_13` notebooks)
+- a runnable mini-framework (`nn.py`, `optim.py`, `trainer.py`, `scheduler.py`)
 
-This project builds an automatic differentiation engine from scratch, demonstrating the core concepts behind modern deep learning frameworks like PyTorch.
+## What I Built
 
-## Progress
+- Scalar autograd engine with computation graph and reverse-mode backprop
+- Neural net stack: `Neuron` -> `Layer` -> `MLP`
+- Optimizers: `SGD`, `Momentum`, `Adam`
+- Training utilities: mini-batching, train/val tracking
+- LR schedulers: `StepLR`, `ExponentialLR`, `CosineAnnealingLR`
+- Benchmark artifact comparing optimizer convergence on same data/seed
 
-- [x] **Day 1**: `Value` class with basic operations (`+`, `*`) and computation graph visualization
-- [x] **Day 2**: Manual backpropagation, gradient checking, and a simple neuron
-- [x] **Day 3**: Chain rule, automatic `backward()`, topological sort, gradient accumulation
-- [x] **Day 4**: Power, division, negation, subtraction with backward passes
-- [x] **Day 5**: `Neuron` class with weights, bias, and tanh activation
-- [x] **Day 6**: `Layer` and `MLP` classes — organizing neurons into networks
-- [x] **Day 7**: Training loop with MSE loss and gradient descent — **Week 1 Complete!** 🎉
-- [x] **Day 8**: Mini-batch gradient descent — batching, shuffling, batch size comparison
-- [x] **Day 9**: SGD with momentum — velocity accumulation, β tuning
+## How It Works
 
-## Structure
+1. Forward pass builds a graph of `Value` nodes.
+2. `backward()` runs reverse-topological traversal and accumulates grads with `+=`.
+3. Optimizer reads grads and updates parameter `.data`.
+4. Trainer handles batches, history logging, and optional scheduler stepping.
 
-```
-├── day_01_value_class.ipynb       # Day 1: Value object and basic operations
-├── day_02_backpropagation.ipynb   # Day 2: Backpropagation and neurons
-├── day_03_chain_rule.ipynb        # Day 3: Automatic backward pass
-├── day_04_more_operations.ipynb   # Day 4: Power, division, negation, subtraction
-├── day_05_neurons.ipynb           # Day 5: Neuron class with tanh activation
-├── day_06_layers.ipynb            # Day 6: Layer and MLP classes
-├── day_07_training_loop.ipynb     # Day 7: Training loop with gradient descent
-├── day_08_batching.ipynb          # Day 8: Mini-batch gradient descent
-├── day_09_momentum.ipynb          # Day 9: SGD with momentum
-└── README.md
-```
-
-## Getting Started
+## How To Run
 
 ```bash
-pip install graphviz matplotlib numpy
+python -m pip install matplotlib
 ```
 
-## Requirements
+Quick demo:
 
-- Python 3.8+
-- graphviz
-- matplotlib
-- numpy
+```bash
+python demo.py
+```
+
+Benchmark (SGD vs Momentum vs Adam, same dataset/seed):
+
+```bash
+python benchmarks/compare_optimizers.py
+```
+
+## Benchmark Artifact
+
+Running `python benchmarks/compare_optimizers.py` generates:
+
+- `results/convergence_train.png`
+- `results/convergence_val.png`
+- `results/benchmark_summary.csv`
+- `results/benchmark_summary.json`
+
+The benchmark is fair by design:
+- same dataset
+- same model shape
+- same random initialization seed
+- only optimizer changes
+
+## Design Tradeoffs
+
+- Kept scalar-level autograd for clarity over speed.
+- Chose MSE + tanh outputs for a minimal, transparent setup.
+- Optimizers include only essential knobs to keep code readable.
+- Not vectorized; this is a teaching-first build, not a throughput engine.
+
+## Failure Cases / Limits
+
+- Can be slow on bigger datasets because ops are scalar objects.
+- Deep or long training can still be numerically brittle.
+- No GPU support, no mixed precision, no checkpointing.
+- `Value` is not a drop-in tensor replacement.
+
+## Repo Layout
+
+```text
+day_01_value_class.ipynb
+...
+day_13_adam.ipynb
+nn.py
+optim.py
+trainer.py
+scheduler.py
+benchmarks/compare_optimizers.py
+demo.py
+results/
+```

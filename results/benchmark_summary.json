@@ -1,0 +1,23 @@
+[
+  {
+    "optimizer": "sgd",
+    "final_train_loss": 0.16124872718034297,
+    "final_val_loss": 0.08621417851818466,
+    "best_val_loss": 0.08621417851818466,
+    "best_epoch": 40
+  },
+  {
+    "optimizer": "momentum",
+    "final_train_loss": 0.010238622419995612,
+    "final_val_loss": 0.003907397421407033,
+    "best_val_loss": 0.003907397421407033,
+    "best_epoch": 40
+  },
+  {
+    "optimizer": "adam",
+    "final_train_loss": 0.05967452871178519,
+    "final_val_loss": 0.03634348392111226,
+    "best_val_loss": 0.03634348392111226,
+    "best_epoch": 40
+  }
+]

@@ -2,6 +2,14 @@
 
 Built from first principles: scalar autograd, MLP, optimizers, schedulers, and a tiny trainer loop.
 
+## About
+
+A from-scratch deep learning project that rebuilds core training mechanics without PyTorch internals:
+- reverse-mode autograd on scalar computation graphs
+- MLP construction from primitive units
+- SGD, Momentum, Adam, and learning-rate schedulers
+- reproducible optimizer benchmarks with convergence plots
+
 This repo is both:
 - a learning track (`day_01` to `day_13` notebooks)
 - a runnable mini-framework (`nn.py`, `optim.py`, `trainer.py`, `scheduler.py`)
